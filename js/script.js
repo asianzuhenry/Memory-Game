@@ -1,13 +1,9 @@
 // Memory Game
 
 // Varialbes
-
-let NewCardArray = []
 let isImaggeClicked = []
-let isgameover = false
 let YouLoose = 'You Loose 😫...'
 let YouWin = 'You Win 😀...'
-let PlayerScore = 0
 
 // Image Card Array
 const CardArray = [
@@ -46,11 +42,7 @@ const PopOver = (msg) => {
 
 }
 
-// score 
-const Score = () => {
-    const score = document.querySelector('.score')
-    score.innerText = `${PlayerScore + 5}%`
-}
+// score
 
 // Start_Game function
 const StartGame = () => {
@@ -63,8 +55,6 @@ const StartGame = () => {
 
             CardArray.forEach(crd => {
                 if (crd.id === rand.toString()) {
-
-                    NewCardArray.shift(crd)
 
                     const img = document.createElement('img')
                     img.src = crd.imgSrc
@@ -80,15 +70,11 @@ const StartGame = () => {
                                     PopOver(YouWin)
                                 }, 1000);
                                 isgameover = true
-                                Score()
                             } else {
                                 setTimeout(() => {
                                     PopOver(YouLoose)
                                 }, 1000);
                                 isgameover = true
-                            }
-                            if (isgameover) {
-                                console.log(isgameover);
                             }
                         }
                     })
@@ -99,6 +85,6 @@ const StartGame = () => {
     }
 }
 
-// innit_game
+// init_game
 document.addEventListener('DOMContentLoaded', () => StartGame());
 
