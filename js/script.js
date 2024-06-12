@@ -1,6 +1,7 @@
 // Memory Game
 
 // Varialbes
+
 let isImaggeClicked = []
 let YouLoose = 'You Loose 😫...'
 let YouWin = 'You Win 😀...'
@@ -24,38 +25,21 @@ const CardArray = [
     }
 ]
 
-// PopOver
-const PopOver = (msg) => {
-    const pop = document.querySelector('div.pop-over')
-    const Text = document.createElement('h1')
-    Text.textContent = msg
-
-    if (msg === YouWin) {
-        Text.style.color = 'green'
-        pop.prepend(Text)
-    }
-    else if (msg === YouLoose) {
-        Text.style.color = 'red'
-        pop.prepend(Text)
-    }
-    pop.style.display = 'flex'
-
-}
-
-// score
-
 // Start_Game function
 const StartGame = () => {
+    isImaggeClicked = []
     const Body = document.querySelector('.cards-container')
 
+    const Body2 = document.createElement('div')
+    Body2.className = 'cards-container'
     for (let i = 0; i < 2; i++) {
         CardArray.map(() => {
             const RandomCard = (CardArray.map(card => card.id))
             const rand = Math.floor(Math.random() * RandomCard.length + 1)
-
+            
             CardArray.forEach(crd => {
-                if (crd.id === rand.toString()) {
-
+            if (crd.id === rand.toString()) {
+                
                     const img = document.createElement('img')
                     img.src = crd.imgSrc
                     const imgdiv = document.createElement('div')
@@ -78,13 +62,44 @@ const StartGame = () => {
                             }
                         }
                     })
-                    Body.prepend(imgdiv)
+                    Body2.prepend(imgdiv)
+                    Body.replaceWith(Body2)
                 }
             })
         })
     }
 }
 
-// init_game
-document.addEventListener('DOMContentLoaded', () => StartGame());
+// PopOver
+const PopOver = (msg) => {
+    const pop = document.querySelector('div.pop-over')
+    const popScore = document.querySelector('div.pop-over .score')
+    const Text = document.createElement('h1')
+    Text.textContent = msg
 
+    popScore.append(Text)
+
+    if (msg === YouWin) {
+        Text.style.color = 'green'
+        popScore.replaceChildren(Text)
+    }
+    else if (msg === YouLoose) {
+        Text.style.color = 'red'
+        popScore.replaceChildren(Text)
+    }
+    pop.style.visibility = 'visible'
+
+}
+
+// score
+
+
+// Replay
+const Replay = () => {
+    const pop = document.querySelector('div.pop-over')
+    pop.style.visibility = 'hidden'
+    StartGame()
+}
+
+// init_game
+    document.addEventListener('DOMContentLoaded', () => StartGame());

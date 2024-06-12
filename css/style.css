@@ -18,6 +18,22 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    visibility: hidden;
+}
+.pop-over {
+    /* width: 700px; */
+    /* height: 500px; */
+    width: 300px;
+    height: 150px;
+    top: 112px;
+    position: absolute;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 1px 4px 12px 12px rgb(214, 214, 214);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .pop-over h1 {
@@ -52,6 +68,7 @@
 .pop-over .buttons button:hover {
     cursor: pointer;
     background-color: #1100ff;
+    color: white;
 }
 
 h1.heading {
