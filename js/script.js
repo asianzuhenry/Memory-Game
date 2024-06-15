@@ -6,6 +6,8 @@ let isImaggeClicked = []
 let YouLoose = 'You Loose 😫...'
 let YouWin = 'You Win 😀...'
 
+
+
 // Image Card Array
 const CardArray = [
     {
@@ -24,6 +26,9 @@ const CardArray = [
         imgSrc: "./images/3.jpg"
     }
 ]
+
+
+
 
 // Start_Game function
 const StartGame = () => {
@@ -69,7 +74,15 @@ const StartGame = () => {
         })
     }
 }
+// score
 
+
+// Replay
+const Replay = () => {
+    const pop = document.querySelector('div.pop-over')
+    pop.style.visibility = 'hidden'
+    StartGame()
+}
 // PopOver
 const PopOver = (msg) => {
     const pop = document.querySelector('div.pop-over')
@@ -91,15 +104,33 @@ const PopOver = (msg) => {
 
 }
 
-// score
 
 
-// Replay
-const Replay = () => {
-    const pop = document.querySelector('div.pop-over')
-    pop.style.visibility = 'hidden'
-    StartGame()
+const CreatePopOver = () => {
+const WrapperCon = document.querySelector('.wrapper-con')
+
+const popdiv = document.createElement('div')
+const scorediv = document.createElement('div')
+const buttonsdiv = document.createElement('div')
+const button1 = document.createElement('button')
+
+popdiv.className = 'pop-over'
+scorediv.className = 'score'
+buttonsdiv.className = 'buttons'
+button1.className = 'replay'
+
+button1.onclick(Replay())
+
+buttonsdiv.append(button1)
+popdiv.append(scorediv, buttonsdiv)
+
+WrapperCon.prepend(popdiv)
+
+console.log(WrapperCon);
 }
 
+
 // init_game
-    document.addEventListener('DOMContentLoaded', () => StartGame());
+document.addEventListener('DOMContentLoaded', () => StartGame());
+
+CreatePopOver()
