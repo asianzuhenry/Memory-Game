@@ -3,6 +3,9 @@
     margin: 0px;
 }
 
+main {
+    width: 100%;
+}
 
 .pop-over {
     /* width: 700px; */
@@ -105,10 +108,11 @@ h2 {
     border-radius: 12px;
     cursor: pointer;
     background-color: rgb(0, 59, 59);
+    transition: 1s;
 }
 
 .imgdiv:hover {
-    border: 2px dotted rgb(17, 0, 255);
+    transition: 1s;
     background-color: rgb(0, 121, 121);
 }
 
@@ -132,3 +136,40 @@ img {
     box-shadow: 1px 4px 12px 12px rgb(214, 214, 214);
 }
 
+.first-screen {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+}
+
+.side1, .side2 {
+    width: 200px;
+    height: 200px;
+}
+
+.side2 h2 {
+color: #0d00bd;
+font-size: 40px;
+}
+
+.side2 button {
+    background-color: #0004ff;
+color: #ffffff;
+font-size: 20px;
+padding: 8px;
+border: none;
+border-radius: 8px;
+transition: 1s;
+transform: scale(1);
+}
+
+.side2 button:hover {
+    background-color: #515161;
+color: #ffffff;
+cursor: pointer;
+transition: 1s;
+transform: scale(1.1);
+}
