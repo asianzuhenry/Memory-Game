@@ -38,7 +38,7 @@ const loadFirstScreen = () => {
     Side1.className = 'side1'
     Side2.className = 'side2'
 
-    Side1Img.src = '../images/favicon.ico'
+    Side1Img.src = './images/favicon.ico'
     Side1Img.alt = 'images'
 
     Side2h2.innerText = 'Let`s Play'
